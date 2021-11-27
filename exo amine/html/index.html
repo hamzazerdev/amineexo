@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../scss/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="nav-bar-container">
+        <div class="nav-bar">
+            <div class="nav-bar-btn">
+                <img src="../images/dashboard_layout_24px.png" alt="icon">
+                <h5>Dashboard</h5>
+            </div>
+            <div class="nav-bar-btn">
+                <img src="../images/purchase_order_24px.png" alt="icon">
+                <h5>Commandes utilitaires</h5>
+            </div>
+            <div class="nav-bar-btn">
+                <img src="../images/map_50px.png" alt="icon">
+                <h5>Suivi de zones</h5>
+            </div>
+        </div>
+    </div>
+        <div class="login-notif">
+            <div class="notif">
+                <img src="../images/bell-ring.png" alt="">
+                <div class="notif-nbr">
+                    <h5>1</h5>
+                </div>
+            </div>
+            <div class="slicer"></div>
+            <div class="login">
+                <div class="login-name">
+                    <h5>Zermane med. aymen</h5>
+                </div>
+               
+                <div class="login-photo">
+                    <img src="../images/user (1).png" alt="photo de profil">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="main-header">
+            <div class="main-title">
+                <h5>Commandes clients</h5>
+            </div>
+            <div class="main-btns">
+                <div class="btn-commande">
+                    <h5>Mes commandes</h5>
+                    <img src="../images/downward-arrow.png" alt="">
+                </div>
+                <div class="btn-actu">
+                    <img src="/images/refresh.png"">
+                </div>
+            </div>
+        </div>
+        <div class="main-info">
+            <div class="infos" id="1">
+                <h5>A initier</h5>
+                <h5>1</h5>
+            </div>
+            <div class="infos" id="2">
+                <h5>Pris en compte</h5>
+                <h5>2</h5>
+            </div>
+            <div class="infos" id="3">
+                <h5>Clos</h5>
+                <h5>3</h5>
+            </div>
+        </div>
+        <div class="data-table">
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1 Data 1</td>
+                        <td>Row 1 Data 2</td>
+                    </tr>
+                    <tr>
+                        <td>Row 2 Data 1</td>
+                        <td>Row 2 Data 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="../js/datatables.js"></script>
+</body>
+</html>
