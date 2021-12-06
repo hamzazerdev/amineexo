@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+ 
+  <script>
+    $(document).ready(function(){
+        $('#table_id').DataTable({
+            "processing": true,
+            "serverSide": true,
+           
+            "ajax": "../serverside/getdata.php"
+        });
+    });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper" id="blured">
+    <header>
+        <div class="nav-bar-container">
+        <div class="nav-bar">
+            <div class="nav-bar-btn">
+                <img src="../images/dashboard_layout_24px.png" alt="icon">
+                <h5>Dashboard</h5>
+            </div>
+            <div class="nav-bar-btn">
+                <img src="../images/purchase_order_24px.png" alt="icon">
+                <h5>Commandes utilitaires</h5>
+            </div>
+            <div class="nav-bar-btn">
+                <img src="../images/map_50px.png" alt="icon">
+                <h5>Suivi de zones</h5>
+            </div>
+        </div>
+    </div>
+        <div class="login-notif">
+            <div class="notif">
+                <img src="../images/bell-ring.png" alt="">
+                <div class="notif-nbr">
+                    <h5 >1</h5>
+                </div>
+            </div>
+            <div class="slicer"></div>
+            <div class="login">
+                <div class="login-name">
+                    <h5>Zermane med. aymen</h5>
+                </div>
+               
+                <div class="login-photo">
+                    <img src="../images/user (1).png" alt="photo de profil">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="main-header">
+            <div class="main-title">
+                <h5>Commandes clients</h5>
+            </div>
+            <div class="main-btns">
+                <div class="btn-commande" >
+                    <h5>Mes commandes</h5>
+                    <img src="../images/downward-arrow.png" alt="">
+                </div>
+                <div class="btn-actu" id="refresh">
+                    <img src="../images/refresh.png"">
+                </div>
+            </div>
+        </div>
+        <div class="main-info">
+            <div class="infos" id="1">
+                <h5>Etat initial</h5>
+                <h5>1</h5>
+            </div>
+            <div class="infos" id="2">
+                <h5>Confirmé</h5>
+                <h5>2</h5>
+            </div>
+            <div class="infos" id="3">
+                <h5>Sortie livraison</h5>
+                <h5>3</h5>
+            </div>
+            <div class="infos" id="4">
+                <h5>Annulé</h5>
+                <h5>4</h5>
+            </div>
+        </div>
+        <div class="data-table">
+            <table id="table_id" class="table table-striped table-bordered ">
+                <thead>
+                    <tr>
+                        <th>Clients</th>
+                        <th>Telephones</th>
+                        <th>Etat Commande</th>
+                        <th>Wilaya</th>
+                        <th>Montant</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+               
+            </table>
+        </div>
+
+    </div>
+
+</div>
+    <div class="popupmodule" id="popup">
+        <div class="pop-up-head">
+          <div class="adress">
+              <h5><strong>Adress :</strong> </h5>
+              <h5 id="adress1"></h5>
+          </div>
+          <div class="date">
+              <h5><strong>Adress :</strong></h5>
+              <h5 id="date1"></h5>
+          </div>
+        </div>
+        <div class="pop-up-body">
+            <table id="table_id1" class="table table-striped table-bordered ">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th>Montant</th>
+                        <th>Total</th>
+                        <th>Etat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="tr1"></td>
+                        <td id="tr2"></td>
+                        <td id="tr3"></td>
+                        <td id="tr4"></td>
+                        <td id="tr5"><select name="" id="" >
+                            <option value="">vrai</option>
+                            <option value="">faux</option>
+                        </select></td>
+                
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pop-up-btns" >
+            <div class="btn-ok" id="btn-ok" onclick="toggle()">
+                <h5>Apply</h5>
+            </div>
+            <div class="btn-cancel" onclick="toggle()">
+                <h5>Cancel</h5>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+    var table = $('#table_id').DataTable();
+     
+    $('#table_id tbody').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        //alert( 'You clicked on '+data[6]+'\'s row' );
+        var table2=$('#table_id1').DataTable();
+        $('#tr1').text(data[6]);
+        $('#tr2').text(data[7]);
+        $('#tr3').text(data[4]);
+        $('#tr4').text(data[9]);
+        $('#tr5').text(data[2]);
+        $('#date1').text(data[5]);
+        $('#adress1').text(data[8]);
+
+
+        toggle();
+        
+    } );
+} );
+    </script>
+
+    <script>
+       function toggle(){
+           let blur=document.getElementById('blured');
+           blur.classList.toggle('blur_active');
+           let popup=document.getElementById('popup');
+           popup.classList.toggle('popup_active');
+           
+       }
+        
+    </script>
+    <script>
+         $(document).ready(function(){
+        $('#table_id1').DataTable({
+            "paging":   false,
+        "ordering": false,
+        "info":     false,
+        "searching":false
+        });
+        
+    });
+    </script>
+    
+   <script>
+      
+       $(document).ready(function() {
+    var table = $('#table_id').DataTable();
+     
+    $('#refresh').on('click', function () {
+       table.ajax.reload();
+    } );
+} );
+   </script>
+   <script>
+
+   </script>
+</body>
+</html>
